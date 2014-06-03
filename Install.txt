@@ -1,5 +1,7 @@
 How to manually install:
 
+Method 1:
+
 Step 1: Push the su binary to /data/local/tmp using adb push su /data/local/tmp
 Step 2: Push the roothandler binary to /data/local/tmp using adb push roothandler /data/local/tmp
 Step 3: Set the roothandler binary permission using adb shell chmod 0755 /data/local/tmp/roothandler
@@ -11,6 +13,27 @@ Step 8: Wait about a minute
 Step 9: Enjoy your root!
 
 If root fails, try rebooting the device.
+
+Method 2 (ONLY TEMP ROOT!):
+
+1: Install your favorite superuser app, then reboot.
+2: Follow steps 1-3 in the previous method.
+3: Push installsu.sh from benjimt/RootMyValet/method2/installsu.sh
+4: type adb shell
+5: type cd /data/local/tmp
+6: Type ./roothandler
+7: Wait for it to do its thing
+8: When prompt comes up with a "#" type the following hitting enter in between:
+busybox stty -echo
+busybox su (ignore the unknown user error here)
+busybox mount -o rw,remount /system
+busybox cp /data/local/tmp/su /system/xbin/su
+busybox chmod 06755 /system/xbin/su
+busybox ln -s /system/xbin/su /system/bin/su
+busybox pkill telnet
+exit
+
+You should now have temp root for a while!
 
 Using the automatic installer:
 
