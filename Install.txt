@@ -27,7 +27,7 @@ Method 2 (ONLY TEMP ROOT!):
 busybox stty -echo
 busybox su (ignore the unknown user error here)
 busybox mount -o rw,remount /system
-busybox cp /data/local/tmp/su /system/xbin/su (If you get a read-only error here, retry the cmds and try typing "./su" instead of "busybox su")
+busybox cp /data/local/tmp/su /system/xbin/su (If you get a read-only error here, try typing "./su" instead of "busybox su")
 busybox chmod 06755 /system/xbin/su
 busybox ln -s /system/xbin/su /system/bin/su
 busybox pkill telnet
